@@ -33,20 +33,32 @@
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
     
-    <!-- Cookie Consent Tool for GDPR/DPF Compliance -->
-    <script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" data-culture="EN" type="text/javascript"></script>
-    <script type="text/javascript">
-      window.addEventListener('load', function () {
-        CookieConsent.run({
-          "notice_banner_type": "simple",
-          "consent_type": "express",
-          "palette": "light",
-          "language": "en",
-          "page_load_consent_levels": ["strictly-necessary"],
-          "notice_banner_reject_button_hide": false,
-          "preferences_center_close_button_hide": false,
-          "page_refresh_confirmation_buttons": false
-        });
+    <!-- Cookie Consent Banner for GDPR/DPF Compliance -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <script>
+      window.addEventListener('load', function(){
+        if (typeof cookieconsent !== 'undefined') {
+          window.cookieconsent.initialise({
+            "palette": {
+              "popup": {
+                "background": "#0a0a0a"
+              },
+              "button": {
+                "background": "#ffffff",
+                "text": "#0a0a0a"
+              }
+            },
+            "theme": "classic",
+            "position": "bottom",
+            "content": {
+              "message": "This website uses cookies to improve your experience and analyze site usage. We respect your privacy.",
+              "dismiss": "Accept",
+              "link": "Learn more",
+              "href": "/privacy"
+            }
+          });
+        }
       });
     </script>
     
