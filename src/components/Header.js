@@ -6,7 +6,10 @@ const HeaderSection = styled.header`
   background: #0a0a0a;
   color: white;
   padding: 3rem 0;
-  border-bottom: 1px solid #1a1a1a;
+  
+  @media (max-width: 480px) {
+    padding: 2rem 0;
+  }
 `;
 
 const Container = styled.div`
@@ -15,47 +18,60 @@ const Container = styled.div`
   padding: 0 2rem;
 `;
 
-const Logo = styled.h1`
-  font-size: 2.8rem;
+const BrandName = styled(motion.h1)`
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
   font-weight: 300;
   letter-spacing: -0.02em;
-  color: white;
-  margin-bottom: 1.2rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   
   @media (max-width: 768px) {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 `;
 
-const Tagline = styled.p`
+const Tagline = styled(motion.h2)`
   font-size: 1.1rem;
-  font-weight: 400;
   color: #a0a0a0;
   margin-bottom: 0.5rem;
+  font-weight: 400;
   letter-spacing: 0.01em;
 `;
 
-const Subtitle = styled.p`
+const SubTagline = styled(motion.p)`
   font-size: 0.95rem;
-  color: #707070;
-  font-weight: 400;
+  color: #8a8a8a;
+  font-weight: 300;
   letter-spacing: 0.02em;
+  margin: 0;
 `;
 
 const Header = () => {
   return (
     <HeaderSection>
       <Container>
-        <motion.div
+        <BrandName
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <Logo>Signal & Scale</Logo>
-          <Tagline>User-generated content for EdTech companies</Tagline>
-          <Subtitle>Reduce acquisition costs through authentic video content</Subtitle>
-        </motion.div>
+          Signal & Scale
+        </BrandName>
+        <Tagline
+          initial={{ opacity: 0, y: -15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          User-generated content for EdTech companies
+        </Tagline>
+        <SubTagline
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          Reduce acquisition costs through authentic video content
+        </SubTagline>
       </Container>
     </HeaderSection>
   );

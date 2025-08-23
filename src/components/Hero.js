@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const HeroSection = styled.section`
-  background: #fafafa;
-  padding: 5rem 0 6rem;
+const Section = styled.section`
+  background: white;
+  padding: 6rem 0;
   
   @media (max-width: 480px) {
-    padding: 4rem 0 5rem;
+    padding: 4rem 0;
   }
 `;
 
@@ -168,6 +168,7 @@ const HeroTitle = styled.h1`
   
   @media (max-width: 768px) {
     font-size: 2.5rem;
+    margin-bottom: 1.5rem;
   }
   
   @media (max-width: 480px) {
@@ -176,15 +177,16 @@ const HeroTitle = styled.h1`
 `;
 
 const HeroDescription = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #4a4a4a;
   margin-bottom: 3rem;
   line-height: 1.6;
-  font-weight: 400;
   letter-spacing: 0.01em;
+  max-width: 500px;
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
   }
 `;
 
@@ -221,7 +223,7 @@ const Hero = () => {
   });
 
   return (
-    <HeroSection ref={ref}>
+    <Section ref={ref}>
       <Container>
         <HeroContent>
           <motion.div
@@ -297,7 +299,7 @@ const Hero = () => {
           </ImageContent>
         </HeroContent>
       </Container>
-    </HeroSection>
+    </Section>
   );
 };
 
