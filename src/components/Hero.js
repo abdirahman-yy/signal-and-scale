@@ -49,7 +49,7 @@ const SplashImage = styled.div`
     rgba(0, 0, 0, 0.1) 50%,
     rgba(0, 0, 0, ${props => props.isHovered ? '0.1' : '0.2'}) 100%
   ),
-  url('/Image.png');
+  url('${process.env.PUBLIC_URL}/Image.png');
   background-size: cover;
   background-position: center;
   border: 1px solid #e0e0e0;

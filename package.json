@@ -2,7 +2,7 @@
   "name": "signal-and-scale",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://abdirahman-yy.github.io/signal-and-scale",
+  "homepage": "https://signalandscale.studio",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
