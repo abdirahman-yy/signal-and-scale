@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/signal-and-scale/static/css/main.c7b79882.css",
+    "main.js": "/signal-and-scale/static/js/main.14693afa.js",
+    "static/js/453.c0a95be8.chunk.js": "/signal-and-scale/static/js/453.c0a95be8.chunk.js",
+    "index.html": "/signal-and-scale/index.html",
+    "main.c7b79882.css.map": "/signal-and-scale/static/css/main.c7b79882.css.map",
+    "main.14693afa.js.map": "/signal-and-scale/static/js/main.14693afa.js.map",
+    "453.c0a95be8.chunk.js.map": "/signal-and-scale/static/js/453.c0a95be8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7b79882.css",
+    "static/js/main.14693afa.js"
+  ]
+}
