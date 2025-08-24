@@ -45,9 +45,9 @@ const SplashImage = styled.div`
   height: 450px;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, ${props => props.isHovered ? '0.2' : '0.3'}) 0%,
+    rgba(0, 0, 0, ${props => props.$isHovered ? '0.2' : '0.3'}) 0%,
     rgba(0, 0, 0, 0.1) 50%,
-    rgba(0, 0, 0, ${props => props.isHovered ? '0.1' : '0.2'}) 100%
+    rgba(0, 0, 0, ${props => props.$isHovered ? '0.1' : '0.2'}) 100%
   ),
   url('${process.env.PUBLIC_URL}/Image.png');
   background-size: cover;
@@ -72,16 +72,70 @@ const SplashImage = styled.div`
   }
 `;
 
-const ImageOverlayContent = styled.div`
-  position: relative;
-  z-index: 3;
+const StatsBar = styled(motion.div)`
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, ${props => props.$isHovered ? '0.9' : '0.7'});
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
-  text-align: center;
   transition: all 0.4s ease;
-  transform: ${props => props.isHovered ? 'scale(1.05)' : 'scale(1)'};
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.8rem;
+  }
+`;
+
+const StatItem = styled.div`
+  text-align: center;
+  
+  .value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.01em;
+  }
+  
+  .label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  @media (max-width: 768px) {
+    .value {
+      font-size: 1rem;
+    }
+    
+    .label {
+      font-size: 0.65rem;
+    }
+  }
+`;
+
+const ImageOverlayContent = styled.div`
+  position: absolute;
+  bottom: 4rem;
+  left: 2rem;
+  right: 2rem;
+  z-index: 2;
+  opacity: ${props => props.$isHovered ? '1' : '0.9'};
+  transform: translateY(${props => props.$isHovered ? '0' : '5px'});
+  transition: all 0.4s ease;
+  
+  @media (max-width: 768px) {
+    bottom: 3rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
 `;
 
 const ContentSubtext = styled.div`
@@ -92,63 +146,31 @@ const ContentSubtext = styled.div`
   max-width: 350px;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  transition: all 0.3s ease;
-  transform: ${props => props.isHovered ? 'translateY(-2px)' : 'translateY(0)'};
-`;
-
-const StatsBar = styled(motion.div)`
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  right: 1rem;
-  background: rgba(10, 10, 10, ${props => props.isHovered ? '0.95' : '0.9'});
-  color: white;
-  padding: 0.8rem 1rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 4;
-  transition: all 0.3s ease;
-  transform: ${props => props.isHovered ? 'translateY(-2px)' : 'translateY(0)'};
-`;
-
-const StatItem = styled.div`
-  text-align: center;
   
-  .number {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #ffffff;
-  }
-  
-  .label {
-    font-size: 0.7rem;
-    color: #a0a0a0;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    max-width: 280px;
   }
 `;
 
 const BottomOverlay = styled.div`
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  background: rgba(255, 255, 255, ${props => props.isHovered ? '0.98' : '0.95'});
-  padding: 1.2rem;
-  border: 1px solid #e0e0e0;
-  backdrop-filter: blur(10px);
-  z-index: 4;
-  transition: all 0.3s ease;
-  transform: ${props => props.isHovered ? 'translateY(-2px)' : 'translateY(0)'};
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 2rem 2rem 1.5rem;
+  opacity: ${props => props.$isHovered ? '1' : '0.7'};
+  transition: all 0.4s ease;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem 1.5rem 1rem;
+  }
 `;
 
 const OverlayText = styled.div`
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.9rem;
-  color: #4a4a4a;
   line-height: 1.5;
   
   strong {
@@ -207,6 +229,7 @@ const CTAButton = styled.a`
     background: transparent;
     color: #0a0a0a;
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
   @media (max-width: 768px) {
@@ -216,26 +239,28 @@ const CTAButton = styled.a`
 `;
 
 const Hero = () => {
-  const [isHovered, setIsHovered] = useState(false);
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
+
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Section ref={ref}>
       <Container>
         <HeroContent>
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <TextContent>
-              <HeroTitle>Authentic video content that converts students into customers</HeroTitle>
+              <HeroTitle>
+                Authentic video content that converts students into customers
+              </HeroTitle>
               <HeroDescription>
-                We create genuine, student-focused video content for EdTech platforms, including test-prep, tutoring, e-learning, and more. 
-                Our approach reduces customer acquisition costs while building trust with authentic student audiences.
+                We create genuine, student-focused video content for EdTech platforms, including test-prep, tutoring, e-learning, and more. Our approach reduces customer acquisition costs while building trust with authentic student audiences.
               </HeroDescription>
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -254,12 +279,12 @@ const Hero = () => {
           </motion.div>
           
           <ImageContent
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <SplashImage
-              isHovered={isHovered}
+              $isHovered={isHovered}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -267,29 +292,29 @@ const Hero = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                isHovered={isHovered}
+                $isHovered={isHovered}
               >
                 <StatItem>
-                  <div className="number">20-30%</div>
+                  <div className="value">20-30%</div>
                   <div className="label">CAC Reduction</div>
                 </StatItem>
                 <StatItem>
-                  <div className="number">14 Days</div>
+                  <div className="value">14 Days</div>
                   <div className="label">Timeline</div>
                 </StatItem>
                 <StatItem>
-                  <div className="number">7-10</div>
+                  <div className="value">7-10</div>
                   <div className="label">UGC Videos</div>
                 </StatItem>
               </StatsBar>
               
-              <ImageOverlayContent isHovered={isHovered}>
-                <ContentSubtext isHovered={isHovered}>
+              <ImageOverlayContent $isHovered={isHovered}>
+                <ContentSubtext>
                   Authentic experiences that drive results for EdTech companies
                 </ContentSubtext>
               </ImageOverlayContent>
               
-              <BottomOverlay isHovered={isHovered}>
+              <BottomOverlay $isHovered={isHovered}>
                 <OverlayText>
                   <strong>Genuine student testimonials</strong><br />
                   Content that resonates with your target audience and drives conversions through relatable, trustworthy experiences
