@@ -24,137 +24,23 @@ const HeroContent = styled.div`
   gap: 4rem;
   align-items: center;
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 `;
 
-const TextContent = styled.div``;
-
-const ImageContent = styled(motion.div)`
-  position: relative;
-  
-  @media (max-width: 768px) {
-    order: -1;
-  }
+const TextContent = styled.div`
+  max-width: 500px;
 `;
 
-const SplashImage = styled.div`
-  width: 100%;
-  height: 450px;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, ${props => props.isHovered ? '0.2' : '0.3'}) 0%,
-    rgba(0, 0, 0, 0.1) 50%,
-    rgba(0, 0, 0, ${props => props.isHovered ? '0.1' : '0.2'}) 100%
-  ),
-  url('${process.env.PUBLIC_URL}/Image.png');
-  background-size: cover;
-  background-position: center;
-  border: 1px solid #e0e0e0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  cursor: pointer;
-  
-  &:hover {
-    border-color: #d0d0d0;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-  }
-  
-  @media (max-width: 768px) {
-    height: 350px;
-  }
-`;
-
-const ImageOverlayContent = styled.div`
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  text-align: center;
-  transition: all 0.4s ease;
-  transform: ${props => props.isHovered ? 'scale(1.05)' : 'scale(1)'};
-`;
-
-const ContentSubtext = styled.div`
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 1.2rem;
+const Eyebrow = styled.div`
+  font-size: 0.85rem;
+  color: #707070;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
   font-weight: 500;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-  max-width: 350px;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  transition: all 0.3s ease;
-  transform: ${props => props.isHovered ? 'translateY(-2px)' : 'translateY(0)'};
-`;
-
-const StatsBar = styled(motion.div)`
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  right: 1rem;
-  background: rgba(10, 10, 10, ${props => props.isHovered ? '0.95' : '0.9'});
-  color: white;
-  padding: 0.8rem 1rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 4;
-  transition: all 0.3s ease;
-  transform: ${props => props.isHovered ? 'translateY(-2px)' : 'translateY(0)'};
-`;
-
-const StatItem = styled.div`
-  text-align: center;
-  
-  .number {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #ffffff;
-  }
-  
-  .label {
-    font-size: 0.7rem;
-    color: #a0a0a0;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-`;
-
-const BottomOverlay = styled.div`
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  background: rgba(255, 255, 255, ${props => props.isHovered ? '0.98' : '0.95'});
-  padding: 1.2rem;
-  border: 1px solid #e0e0e0;
-  backdrop-filter: blur(10px);
-  z-index: 4;
-  transition: all 0.3s ease;
-  transform: ${props => props.isHovered ? 'translateY(-2px)' : 'translateY(0)'};
-`;
-
-const OverlayText = styled.div`
-  font-size: 0.9rem;
-  color: #4a4a4a;
-  line-height: 1.5;
-  
-  strong {
-    color: #0a0a0a;
-    font-weight: 600;
-  }
 `;
 
 const HeroTitle = styled.h1`
@@ -176,13 +62,12 @@ const HeroTitle = styled.h1`
   }
 `;
 
-const HeroDescription = styled.p`
+const HeroSubhead = styled.p`
   font-size: 1.15rem;
   color: #4a4a4a;
   margin-bottom: 3rem;
   line-height: 1.6;
   letter-spacing: 0.01em;
-  max-width: 500px;
   
   @media (max-width: 768px) {
     font-size: 1.05rem;
@@ -190,7 +75,14 @@ const HeroDescription = styled.p`
   }
 `;
 
-const CTAButton = styled.a`
+const CTAContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+`;
+
+const PrimaryCTA = styled.a`
   display: inline-block;
   padding: 1rem 2rem;
   font-size: 1rem;
@@ -215,88 +107,129 @@ const CTAButton = styled.a`
   }
 `;
 
+const SecondaryCTA = styled.a`
+  color: #0a0a0a;
+  text-decoration: underline;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: #4a4a4a;
+  }
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+`;
+
+const HeroImage = styled.div`
+  width: 100%;
+  height: 450px;
+  background: url('${process.env.PUBLIC_URL}/Image.png');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #e0e0e0;
+  transition: all 0.4s ease;
+  
+  &:hover {
+    border-color: #d0d0d0;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  }
+  
+  @media (max-width: 768px) {
+    height: 350px;
+  }
+`;
+
+const TrustChips = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
+`;
+
+const TrustChip = styled.div`
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  color: #4a4a4a;
+  border-radius: 2px;
+  
+  @media (max-width: 768px) {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+`;
+
 const Hero = () => {
-  const [isHovered, setIsHovered] = useState(false);
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
+
+  const handleSecondaryCTA = () => {
+    const howItWorksSection = document.getElementById('how-it-works');
+    if (howItWorksSection) {
+      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <Section ref={ref}>
       <Container>
         <HeroContent>
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <TextContent>
-              <HeroTitle>Authentic video content that converts students into customers</HeroTitle>
-              <HeroDescription>
-                We create genuine, student-focused video content for EdTech platforms, including test-prep, tutoring, e-learning, and more. 
-                Our approach reduces customer acquisition costs while building trust with authentic student audiences.
-              </HeroDescription>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-              >
-                <CTAButton 
-                  href="https://calendly.com/signalandscale-sales/30min" 
+              <Eyebrow>UGC for EdTech</Eyebrow>
+              
+              <HeroTitle>Cut EdTech CAC with authentic student videos</HeroTitle>
+              
+              <HeroSubhead>
+                Start a <strong>paid pilot</strong> to test student-made creative fast. Choose a <strong>7-day production sprint</strong> (ad-ready assets) or a <strong>14-day pilot</strong> (content + early learnings). We handle creators, Spark/allowlisting, and clean QA.
+              </HeroSubhead>
+              
+              <CTAContainer>
+                <PrimaryCTA 
+                  href="https://calendly.com/signalandscale-sales/30min?utm_source=site&utm_medium=cta&utm_campaign=paid_pilot" 
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Start a pilot program
-                </CTAButton>
-              </motion.div>
+                  Start a paid pilot →
+                </PrimaryCTA>
+                
+                <SecondaryCTA onClick={handleSecondaryCTA}>
+                  See how it works
+                </SecondaryCTA>
+              </CTAContainer>
+              
+              <TrustChips>
+                <TrustChip>Pilot launches fast</TrustChip>
+                <TrustChip>Full usage rights</TrustChip>
+                <TrustChip>Clean QA + UTMs</TrustChip>
+              </TrustChips>
             </TextContent>
           </motion.div>
-          
-          <ImageContent
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <SplashImage
-              isHovered={isHovered}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <StatsBar
-                initial={{ opacity: 0, y: -20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                isHovered={isHovered}
-              >
-                <StatItem>
-                  <div className="number">20-30%</div>
-                  <div className="label">CAC Reduction</div>
-                </StatItem>
-                <StatItem>
-                  <div className="number">14 Days</div>
-                  <div className="label">Timeline</div>
-                </StatItem>
-                <StatItem>
-                  <div className="number">7-10</div>
-                  <div className="label">UGC Videos</div>
-                </StatItem>
-              </StatsBar>
-              
-              <ImageOverlayContent isHovered={isHovered}>
-                <ContentSubtext isHovered={isHovered}>
-                  Authentic experiences that drive results for EdTech companies
-                </ContentSubtext>
-              </ImageOverlayContent>
-              
-              <BottomOverlay isHovered={isHovered}>
-                <OverlayText>
-                  <strong>Genuine student testimonials</strong><br />
-                  Content that resonates with your target audience and drives conversions through relatable, trustworthy experiences
-                </OverlayText>
-              </BottomOverlay>
-            </SplashImage>
-          </ImageContent>
+            <ImageContainer>
+              <HeroImage alt="Student working on a laptop in a bright study space" />
+            </ImageContainer>
+          </motion.div>
         </HeroContent>
       </Container>
     </Section>

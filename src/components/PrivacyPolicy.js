@@ -9,40 +9,40 @@ const PageContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  background: #fafafa;
+  background: #0a0a0a;
   min-height: 100vh;
 `;
 
 const BackLink = styled(Link)`
   display: inline-block;
   margin-bottom: 2rem;
-  color: #0a0a0a;
+  color: #ffffff;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #333;
   transition: all 0.3s ease;
   
   &:hover {
-    background: #0a0a0a;
+    background: #333;
     color: white;
   }
 `;
 
 const Title = styled.h1`
-  color: #0a0a0a;
+  color: #ffffff;
   font-weight: 300;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 `;
 
 const EffectiveDate = styled.p`
-  color: #707070;
+  color: #a0a0a0;
   font-style: italic;
   margin-bottom: 2rem;
 `;
 
 const SectionTitle = styled.h2`
-  color: #0a0a0a;
+  color: #ffffff;
   font-weight: 500;
   font-size: 1.5rem;
   margin-top: 2rem;
@@ -51,7 +51,7 @@ const SectionTitle = styled.h2`
 
 const Paragraph = styled.p`
   margin-bottom: 1rem;
-  color: #4a4a4a;
+  color: #d0d0d0;
 `;
 
 const List = styled.ul`
@@ -61,7 +61,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   margin-bottom: 0.5rem;
-  color: #4a4a4a;
+  color: #d0d0d0;
 `;
 
 const PrivacyPolicy = () => {

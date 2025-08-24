@@ -21,7 +21,7 @@ const Container = styled.div`
 const BrandName = styled(motion.h1)`
   font-size: 2.5rem;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-weight: 300;
   letter-spacing: -0.02em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -29,14 +29,6 @@ const BrandName = styled(motion.h1)`
   @media (max-width: 768px) {
     font-size: 2rem;
   }
-`;
-
-const Tagline = styled(motion.h2)`
-  font-size: 1.1rem;
-  color: #a0a0a0;
-  margin-bottom: 0.5rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
 `;
 
 const SubTagline = styled(motion.p)`
@@ -58,19 +50,12 @@ const Header = () => {
         >
           Signal & Scale
         </BrandName>
-        <Tagline
-          initial={{ opacity: 0, y: -15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-          User-generated content for EdTech companies
-        </Tagline>
         <SubTagline
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          Reduce acquisition costs through authentic video content
+          UGC for EdTech
         </SubTagline>
       </Container>
     </HeaderSection>
