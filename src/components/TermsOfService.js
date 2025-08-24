@@ -9,40 +9,40 @@ const PageContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  background: #0a0a0a;
+  background: white;
   min-height: 100vh;
 `;
 
 const BackLink = styled(Link)`
   display: inline-block;
   margin-bottom: 2rem;
-  color: #ffffff;
+  color: #0a0a0a;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border: 1px solid #333;
+  border: 1px solid #e0e0e0;
   transition: all 0.3s ease;
   
   &:hover {
-    background: #333;
+    background: #0a0a0a;
     color: white;
   }
 `;
 
 const Title = styled.h1`
-  color: #ffffff;
+  color: #0a0a0a;
   font-weight: 300;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 `;
 
 const EffectiveDate = styled.p`
-  color: #a0a0a0;
+  color: #707070;
   font-style: italic;
   margin-bottom: 2rem;
 `;
 
 const SectionTitle = styled.h2`
-  color: #ffffff;
+  color: #0a0a0a;
   font-weight: 500;
   font-size: 1.5rem;
   margin-top: 2rem;
@@ -51,7 +51,7 @@ const SectionTitle = styled.h2`
 
 const Paragraph = styled.p`
   margin-bottom: 1rem;
-  color: #d0d0d0;
+  color: #4a4a4a;
 `;
 
 const List = styled.ul`
@@ -61,7 +61,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   margin-bottom: 0.5rem;
-  color: #d0d0d0;
+  color: #4a4a4a;
 `;
 
 const TermsOfService = () => {
