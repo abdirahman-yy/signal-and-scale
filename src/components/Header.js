@@ -21,7 +21,7 @@ const Container = styled.div`
 const BrandName = styled(motion.h1)`
   font-size: 2.5rem;
   color: white;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   font-weight: 300;
   letter-spacing: -0.02em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;

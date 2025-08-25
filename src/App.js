@@ -16,7 +16,8 @@ const AppContainer = styled.div`
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #ffffff;
+  background-color: #0a0a0a;
+  min-height: 100vh;
 `;
 
 // Component to handle scroll to top on route change
@@ -44,7 +45,7 @@ const HomePage = () => (
 
 function App() {
   return (
-    <Router basename={process.env.NODE_ENV === 'production' ? '/signal-and-scale' : ''}>
+    <Router basename={process.env.NODE_ENV === 'production' ? '' : ''}>
       <AppContainer>
         <ScrollToTop />
         <Routes>
