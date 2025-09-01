@@ -21,9 +21,21 @@ const Container = styled.div`
   gap: 1rem;
 `;
 
+const LogoContainer = styled.div`
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+`;
+
 const LogoImage = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 `;
 
 const BrandName = styled(motion.h1)`
@@ -43,7 +55,9 @@ const Header = () => {
   return (
     <HeaderSection>
       <Container>
-        <LogoImage src={`${process.env.PUBLIC_URL}/Black and White Star Symbol.png`} alt="Signal & Scale Studio Logo" />
+        <LogoContainer>
+          <LogoImage src={`${process.env.PUBLIC_URL}/Black and White Star Symbol.png`} alt="Signal & Scale Studio Logo" />
+        </LogoContainer>
         <BrandName
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

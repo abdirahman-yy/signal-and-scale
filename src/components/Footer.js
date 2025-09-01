@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const FooterSection = styled.footer`
-  background: #fafafa;
+  background: white;
   padding: 3rem 0;
   border-top: 1px solid #e0e0e0;
 `;
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 `;
 
 const FooterContent = styled.div`
@@ -35,8 +35,7 @@ const ContactInfo = styled.div`
 const EmailLink = styled.a`
   color: #0a0a0a;
   text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: 0.01em;
+  font-size: 0.9rem;
   font-weight: 500;
   
   &:hover {
@@ -45,7 +44,7 @@ const EmailLink = styled.a`
 `;
 
 const ContactLabel = styled.span`
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #707070;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -53,7 +52,7 @@ const ContactLabel = styled.span`
 `;
 
 const SupportHours = styled.div`
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #707070;
   margin-top: 0.5rem;
 `;
@@ -67,16 +66,15 @@ const LocationInfo = styled.div`
 `;
 
 const Location = styled.div`
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #4a4a4a;
-  margin-bottom: 0.5rem;
 `;
 
 const FooterBottom = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid #f0f0f0;
   
   @media (max-width: 768px) {
@@ -88,8 +86,7 @@ const FooterBottom = styled.div`
 
 const Copyright = styled.div`
   color: #707070;
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
+  font-size: 0.8rem;
 `;
 
 const LegalLinks = styled.div`
@@ -104,9 +101,8 @@ const LegalLinks = styled.div`
 const LegalLink = styled(Link)`
   color: #707070;
   text-decoration: none;
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
-  transition: color 0.3s ease;
+  font-size: 0.8rem;
+  transition: color 0.2s ease;
   
   &:hover {
     color: #0a0a0a;
@@ -150,12 +146,8 @@ const Footer = () => {
         <FooterBottom>
           <Copyright>© 2025 Signal & Scale. All rights reserved.</Copyright>
           <LegalLinks>
-            <LegalLink to="/tos">
-              Terms of Service
-            </LegalLink>
-            <LegalLink to="/privacy">
-              Privacy Policy
-            </LegalLink>
+            <LegalLink to="/tos">Terms of Service</LegalLink>
+            <LegalLink to="/privacy">Privacy Policy</LegalLink>
           </LegalLinks>
         </FooterBottom>
         

@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 const Section = styled.section`
   background: #fafafa;
-  padding: 6rem 0;
+  padding: 5rem 0;
   
   @media (max-width: 480px) {
     padding: 4rem 0;
@@ -13,22 +13,22 @@ const Section = styled.section`
 `;
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #0a0a0a;
-  margin-bottom: 1rem;
-  font-weight: 300;
+  margin-bottom: 3rem;
+  font-weight: 400;
   letter-spacing: -0.02em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   text-align: center;
   
   @media (max-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 `;
 
@@ -46,45 +46,44 @@ const ProofCards = styled.div`
 
 const ProofCard = styled(motion.div)`
   background: white;
-  border: 2px solid #e0e0e0;
-  padding: 2rem;
-  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
   text-align: center;
   
   &:hover {
     border-color: #0a0a0a;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   }
   
   @media (max-width: 768px) {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
 `;
 
 const ProofTitle = styled.div`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #0a0a0a;
   font-weight: 500;
-  margin-bottom: 1rem;
-  letter-spacing: -0.01em;
+  margin-bottom: 0.8rem;
 `;
 
 const ProofDescription = styled.p`
   color: #4a4a4a;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 `;
 
 const ExampleMath = styled(motion.div)`
   background: white;
-  border: 2px solid #e0e0e0;
-  padding: 2.5rem;
-  margin-top: 3rem;
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  margin-top: 2rem;
   
   .title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #0a0a0a;
     font-weight: 500;
     margin-bottom: 1rem;
@@ -92,65 +91,22 @@ const ExampleMath = styled(motion.div)`
   }
   
   .calculation {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #4a4a4a;
     line-height: 1.6;
     margin-bottom: 1rem;
+    text-align: center;
   }
   
   .disclaimer {
     font-size: 0.8rem;
     color: #707070;
     font-style: italic;
-    margin-top: 1rem;
+    text-align: center;
   }
   
   @media (max-width: 768px) {
-    padding: 2rem;
-  }
-`;
-
-const CTASection = styled(motion.div)`
-  background: #0a0a0a;
-  color: white;
-  padding: 3rem;
-  text-align: center;
-  margin-top: 3rem;
-  
-  .title {
-    font-size: 1.4rem;
-    color: white;
-    margin-bottom: 1rem;
-    font-weight: 500;
-  }
-  
-  .subtitle {
-    color: #a0a0a0;
-    margin-bottom: 2rem;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 2rem;
-  }
-`;
-
-const ViewButton = styled.a`
-  display: inline-block;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 500;
-  text-decoration: none;
-  background: white;
-  color: #0a0a0a;
-  border: 1px solid white;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  letter-spacing: 0.02em;
-  
-  &:hover {
-    background: transparent;
-    color: white;
-    transform: translateY(-1px);
+    padding: 1.5rem;
   }
 `;
 
@@ -166,17 +122,16 @@ const Testimonials = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.8 }}
         >
-          <SectionTitle>What you'll see (proof artifacts)</SectionTitle>
+          <SectionTitle>What you'll see</SectionTitle>
         </motion.div>
 
         <ProofCards>
           <ProofCard
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
           >
             <ProofTitle>Pilot Scorecard (view-only)</ProofTitle>
             <ProofDescription>
@@ -187,8 +142,7 @@ const Testimonials = () => {
           <ProofCard
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <ProofTitle>Win Packet</ProofTitle>
             <ProofDescription>
@@ -199,8 +153,7 @@ const Testimonials = () => {
           <ProofCard
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             <ProofTitle>Weekly readouts</ProofTitle>
             <ProofDescription>
@@ -212,7 +165,7 @@ const Testimonials = () => {
         <ExampleMath
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="title">Example math (illustrative, not a promise)</div>
           <div className="calculation">
@@ -222,22 +175,6 @@ const Testimonials = () => {
             Illustrative only. Actual performance depends on your audience, offer, budget, and parity adherence.
           </div>
         </ExampleMath>
-
-        <CTASection
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-        >
-          <div className="title">Ready to run a Fair Test?</div>
-          <div className="subtitle">Limited pilot slots each month.</div>
-          <ViewButton 
-            href="https://calendly.com/signalandscale-sales/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Schedule a consultation
-          </ViewButton>
-        </CTASection>
       </Container>
     </Section>
   );

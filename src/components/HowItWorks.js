@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 const Section = styled.section`
   background: white;
-  padding: 6rem 0;
+  padding: 5rem 0;
   
   @media (max-width: 480px) {
     padding: 4rem 0;
@@ -13,44 +13,42 @@ const Section = styled.section`
 `;
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #0a0a0a;
-  margin-bottom: 4rem;
-  font-weight: 300;
+  margin-bottom: 3rem;
+  font-weight: 400;
   letter-spacing: -0.02em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   text-align: center;
   
   @media (max-width: 768px) {
-    font-size: 1.8rem;
-    margin-bottom: 3rem;
+    font-size: 1.6rem;
   }
 `;
 
 const TestSteps = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
 `;
 
 const StepCard = styled(motion.div)`
   background: #fafafa;
-  border: 2px solid #e0e0e0;
-  padding: 2rem;
-  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+  padding: 1.8rem;
+  transition: all 0.2s ease;
   position: relative;
   
   &:hover {
     border-color: #0a0a0a;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   }
   
   @media (max-width: 768px) {
@@ -60,60 +58,52 @@ const StepCard = styled(motion.div)`
 
 const StepNumber = styled.div`
   position: absolute;
-  top: -15px;
-  left: 2rem;
+  top: -12px;
+  left: 1.8rem;
   background: #0a0a0a;
   color: white;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
 `;
 
 const StepTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #0a0a0a;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   font-weight: 500;
-  letter-spacing: -0.01em;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
 `;
 
 const StepDescription = styled.p`
   color: #4a4a4a;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 `;
 
 const GuaranteeSection = styled(motion.div)`
   background: #0a0a0a;
   color: white;
-  padding: 3rem;
+  padding: 2rem;
   text-align: center;
   margin-top: 3rem;
   
   @media (max-width: 768px) {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 `;
 
-const GuaranteeTitle = styled.h3`
-  font-size: 1.4rem;
-  color: white;
-  margin-bottom: 1rem;
-  font-weight: 500;
-`;
-
 const GuaranteeText = styled.p`
-  color: #a0a0a0;
-  line-height: 1.6;
+  color: #e0e0e0;
+  line-height: 1.5;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
 `;
 
 const FairTest = () => {
@@ -128,7 +118,7 @@ const FairTest = () => {
       description: "Lock CTR/CPC/CAC baseline with screenshots. Document parity (budgets, placements, schedule, geo, attribution)."
     },
     {
-      title: "Days 1–14 — Production & Testing",
+      title: "Days 1–14 — Production & Testing", 
       description: "Ship 4–6 variants/day, run 2 ops checks/day, add 2–3 new hooks/48h, nightly upload by 7:00 PM CT."
     },
     {
@@ -147,7 +137,7 @@ const FairTest = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.8 }}
         >
           <SectionTitle>The Fair Test (4 steps)</SectionTitle>
         </motion.div>
@@ -156,13 +146,9 @@ const FairTest = () => {
           {steps.map((step, index) => (
             <StepCard
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.2 + (index * 0.1), ease: [0.25, 0.46, 0.45, 0.94] }}
-              whileHover={{ 
-                y: -3,
-                transition: { duration: 0.3 }
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 0.1 + (index * 0.1) }}
             >
               <StepNumber>{index + 1}</StepNumber>
               <StepTitle>{step.title}</StepTitle>
@@ -174,12 +160,10 @@ const FairTest = () => {
         <GuaranteeSection
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <GuaranteeTitle>Guarantee (clear, no refunds promise)</GuaranteeTitle>
           <GuaranteeText>
-            If there's no win under parity, we part friends at Day-14—no retainer obligation.<br/>
-            Pilot fees cover creative & ops; ad spend is client-funded directly.
+            If there's no win under parity, we part friends at Day-14—no retainer obligation.
           </GuaranteeText>
         </GuaranteeSection>
       </Container>
