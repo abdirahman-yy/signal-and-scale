@@ -24,7 +24,6 @@ const Container = styled.div`
 const LogoImage = styled.img`
   width: 40px;
   height: 40px;
-  filter: invert(1);
 `;
 
 const BrandName = styled(motion.h1)`
@@ -44,7 +43,7 @@ const Header = () => {
   return (
     <HeaderSection>
       <Container>
-        <LogoImage src={`${process.env.PUBLIC_URL}/logo.svg`} alt="Signal & Scale Studio Logo" />
+        <LogoImage src={`${process.env.PUBLIC_URL}/Black and White Star Symbol.png`} alt="Signal & Scale Studio Logo" />
         <BrandName
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

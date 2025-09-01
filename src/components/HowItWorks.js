@@ -35,7 +35,7 @@ const SectionTitle = styled.h2`
 
 const TestSteps = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
 `;
@@ -124,20 +124,20 @@ const FairTest = () => {
 
   const steps = [
     {
-      title: "Day 0: Baseline & parity plan",
-      description: "CTR/CPC/CAC baseline established with screenshots. Parity settings documented and locked."
+      title: "Day 0 — Baseline & Parity Plan",
+      description: "Lock CTR/CPC/CAC baseline with screenshots. Document parity (budgets, placements, schedule, geo, attribution)."
     },
     {
-      title: "Days 1–14: Production & testing",
-      description: "4–6 variants/day; 2 ops checks/day; 2–3 new hooks/48h; nightly upload by 7:00 PM CT."
+      title: "Days 1–14 — Production & Testing",
+      description: "Ship 4–6 variants/day, run 2 ops checks/day, add 2–3 new hooks/48h, nightly upload by 7:00 PM CT."
     },
     {
-      title: "Gates: Kill/Promote rules",
-      description: "Kill <0.5× CTR @ $150; promote >1.3× CTR; winners funded to $300–$500."
+      title: "Gates — Kill/Promote",
+      description: "Kill if CTR < 0.5× control @ $150 or CAC > 1.3× control @ $300. Promote if CTR > 1.3× control; fund winners $300–$500/variant."
     },
     {
-      title: "Win: Performance thresholds",
-      description: "+30% CTR (72h hold) or −20% CAC under strict parity conditions."
+      title: "Win — Performance Thresholds",
+      description: "Win = +30% CTR (held ≥72h) or −20% CAC under parity, with ≥2 funded winners."
     }
   ];
 
@@ -149,7 +149,7 @@ const FairTest = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <SectionTitle>The Fair Test</SectionTitle>
+          <SectionTitle>The Fair Test (4 steps)</SectionTitle>
         </motion.div>
 
         <TestSteps>
@@ -176,9 +176,10 @@ const FairTest = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <GuaranteeTitle>Guarantee</GuaranteeTitle>
+          <GuaranteeTitle>Guarantee (clear, no refunds promise)</GuaranteeTitle>
           <GuaranteeText>
-            If no win under parity, we part friends. No retainer obligation.
+            If there's no win under parity, we part friends at Day-14—no retainer obligation.<br/>
+            Pilot fees cover creative & ops; ad spend is client-funded directly.
           </GuaranteeText>
         </GuaranteeSection>
       </Container>

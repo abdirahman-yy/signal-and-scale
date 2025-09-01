@@ -72,28 +72,6 @@ const Location = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-const SocialLinks = styled.div`
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  
-  @media (max-width: 768px) {
-    justify-content: flex-start;
-  }
-`;
-
-const SocialLink = styled.a`
-  color: #707070;
-  text-decoration: none;
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
-  transition: color 0.3s ease;
-  
-  &:hover {
-    color: #0a0a0a;
-  }
-`;
-
 const FooterBottom = styled.div`
   display: flex;
   justify-content: space-between;
@@ -108,11 +86,10 @@ const FooterBottom = styled.div`
   }
 `;
 
-const Copyright = styled.p`
+const Copyright = styled.div`
   color: #707070;
   font-size: 0.85rem;
   letter-spacing: 0.02em;
-  margin: 0;
 `;
 
 const LegalLinks = styled.div`
@@ -136,6 +113,14 @@ const LegalLink = styled(Link)`
   }
 `;
 
+const Disclaimer = styled.div`
+  font-size: 0.75rem;
+  color: #8a8a8a;
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
+`;
+
 const Footer = () => {
   return (
     <FooterSection>
@@ -154,14 +139,11 @@ const Footer = () => {
                 sales@signalandscale.studio
               </EmailLink>
             </div>
-            <SupportHours>Support: 9AM–6PM CDT</SupportHours>
+            <SupportHours>Support: Mon–Fri, 9 AM–6 PM CT</SupportHours>
           </ContactInfo>
           
           <LocationInfo>
             <Location>Minneapolis, MN</Location>
-            <SocialLinks>
-              {/* LinkedIn link removed for cleaner footer */}
-            </SocialLinks>
           </LocationInfo>
         </FooterContent>
         
@@ -176,6 +158,10 @@ const Footer = () => {
             </LegalLink>
           </LegalLinks>
         </FooterBottom>
+        
+        <Disclaimer>
+          Performance is contingent on fair tests; we log all parity breaks.
+        </Disclaimer>
       </Container>
     </FooterSection>
   );

@@ -17,6 +17,7 @@ const Container = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  text-align: center;
 `;
 
 const CTATitle = styled.h2`
@@ -39,13 +40,8 @@ const CTADescription = styled.p`
   line-height: 1.6;
   letter-spacing: 0.01em;
   max-width: 600px;
-`;
-
-const ConversionGoal = styled.p`
-  font-size: 0.95rem;
-  color: #c0c0c0;
-  margin-bottom: 3rem;
-  font-style: italic;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const CTAButton = styled.a`
@@ -87,14 +83,10 @@ const FinalCTA = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <CTATitle>Ready to reduce your acquisition costs?</CTATitle>
+          <CTATitle>Ready to run a Fair Test?</CTATitle>
           <CTADescription>
-            Secure a spot this week—limited availability. 
-            Discuss how authentic video content can transform your student acquisition strategy.
+            Limited pilot slots each month.
           </CTADescription>
-          <ConversionGoal>
-            Goal: 5% conversion rate from video views to pilot sign-ups
-          </ConversionGoal>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
@@ -105,7 +97,7 @@ const FinalCTA = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Schedule consultation—secure a spot this week
+              Schedule a consultation
             </CTAButton>
           </motion.div>
         </motion.div>

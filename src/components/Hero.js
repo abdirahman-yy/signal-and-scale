@@ -67,6 +67,29 @@ const HeroSubtext = styled.p`
   }
 `;
 
+const QuickFacts = styled(motion.div)`
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  
+  .title {
+    font-weight: 600;
+    color: #0a0a0a;
+    margin-bottom: 0.5rem;
+  }
+  
+  .note {
+    font-size: 0.75rem;
+    color: #707070;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+`;
+
 const CTAButtons = styled.div`
   display: flex;
   gap: 1rem;
@@ -236,6 +259,36 @@ const ContentSubtext = styled.div`
   letter-spacing: -0.01em;
 `;
 
+const MethodBanner = styled(motion.div)`
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  
+  .title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0a0a0a;
+    margin-bottom: 1rem;
+  }
+  
+  .points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #4a4a4a;
+    line-height: 1.4;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+    .points {
+      grid-template-columns: 1fr;
+    }
+  }
+`;
+
 const BottomOverlay = styled.div`
   position: absolute;
   bottom: 0;
@@ -284,10 +337,10 @@ const Hero = () => {
           >
             <TextContent>
               <HeroTitle>
-                Lower EdTech CAC with auditable UGC — proven in a 14‑day fair test.
+                Lower EdTech Customer Acquisition Cost (CAC) with auditable UGC—validated in a 14-day Fair Test.
               </HeroTitle>
               <HeroSubtext>
-                We ship disciplined, Spark‑ready UGC and enforce parity (same budgets, placements, schedule). If we don't beat your current set, we part friends.
+                We ship disciplined, Spark-ready UGC and enforce parity (same budgets, placements, schedule, geo, attribution). We kill weak variants early and fund winners $300–$500 per variant to confirm lift. If we don't beat your control under parity, we part friends—no retainer obligation.
               </HeroSubtext>
               <CTAButtons>
                 <motion.div
@@ -300,7 +353,7 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Start a 14‑day fair test
+                    Start a 14-day Fair Test
                   </PrimaryCTA>
                 </motion.div>
                 <motion.div
@@ -311,10 +364,24 @@ const Hero = () => {
                   <SecondaryCTA 
                     href="#scorecard" 
                   >
-                    See the Scorecard
+                    Preview a sample Scorecard
                   </SecondaryCTA>
                 </motion.div>
               </CTAButtons>
+              
+              <QuickFacts
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+              >
+                <div className="title">Quick facts</div>
+                <strong>Timeline:</strong> 14 days<br/>
+                <strong>Throughput:</strong> 7–10 UGC videos (4–6 variants/day)<br/>
+                <strong>Ops discipline:</strong> 2 ops checks/day & nightly upload (7:00 PM CT)<br/>
+                <strong>Win Gate:</strong> +30% CTR (72h hold) or −20% CAC vs control (parity held)<br/>
+                <strong>Winner funding:</strong> $300–$500 per variant (to de-noise results)<br/>
+                <div className="note">CTR = Click-Through Rate; CAC = Customer Acquisition Cost.</div>
+              </QuickFacts>
             </TextContent>
           </motion.div>
 
@@ -328,26 +395,6 @@ const Hero = () => {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <StatsBar
-                initial={{ opacity: 0, y: -20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                isHovered={isHovered}
-              >
-                <StatItem>
-                  <div className="value">20-30%</div>
-                  <div className="label">CAC REDUCTION</div>
-                </StatItem>
-                <StatItem>
-                  <div className="value">14 Days</div>
-                  <div className="label">TIMELINE</div>
-                </StatItem>
-                <StatItem>
-                  <div className="value">7-10</div>
-                  <div className="label">UGC VIDEOS</div>
-                </StatItem>
-              </StatsBar>
-              
               <ImageOverlayContent isHovered={isHovered}>
                 <ContentSubtext isHovered={isHovered}>
                   Auditable results under strict parity conditions
@@ -356,8 +403,8 @@ const Hero = () => {
               
               <BottomOverlay isHovered={isHovered}>
                 <OverlayText>
-                  <strong>Fair Test methodology</strong><br />
-                  Same budgets, placements, schedule. Kill weak variants early, fund winners $300-$500. If we don't beat control, we part friends.
+                  <strong>Method banner</strong><br />
+                  Parity enforced: same budgets, placements, schedule, geo, attribution • Kill/Promote rules: kill &lt;0.5× CTR @ $150; promote &gt;1.3× CTR • 72h hold: confirm +30% CTR isn't a one-hour spike • Winner funding: $300–$500 per promising variant to validate lift • Win Packet: baseline, parity log, screenshots, Spark rights proof
                 </OverlayText>
               </BottomOverlay>
             </SplashImage>
