@@ -77,7 +77,9 @@ const CTAButtons = styled.div`
 `;
 
 const CTAButton = styled.a`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 500;
@@ -88,6 +90,8 @@ const CTAButton = styled.a`
   transition: all 0.3s ease;
   cursor: pointer;
   letter-spacing: 0.02em;
+  min-width: 200px;
+  text-align: center;
   
   &:hover {
     background: transparent;
@@ -102,7 +106,9 @@ const CTAButton = styled.a`
 `;
 
 const SecondaryButton = styled.button`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 500;
@@ -112,6 +118,8 @@ const SecondaryButton = styled.button`
   transition: all 0.3s ease;
   cursor: pointer;
   letter-spacing: 0.02em;
+  min-width: 200px;
+  text-align: center;
   
   &:hover {
     border-color: #0a0a0a;

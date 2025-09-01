@@ -48,15 +48,6 @@ const ProofGrid = styled.div`
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
-  /* Center the last item when there are 3 items */
-  & > *:nth-child(3) {
-    @media (min-width: 769px) {
-      grid-column: 2 / 3;
-      margin: 0 auto;
-      width: 100%;
-    }
-  }
 `;
 
 const ProofCard = styled(motion.div)`
