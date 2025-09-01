@@ -5,9 +5,9 @@ import { useInView } from 'react-intersection-observer';
 
 const Section = styled.section`
   background: #fafafa;
-  padding: 5rem 0;
+  padding: 6rem 0;
   
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     padding: 4rem 0;
   }
 `;
@@ -18,25 +18,29 @@ const Container = styled.div`
   padding: 0 1.5rem;
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 2rem;
-  color: #0a0a0a;
-  margin-bottom: 3rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+const SectionHeader = styled.div`
   text-align: center;
+  margin-bottom: 4rem;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 2.5rem;
+  color: #0a0a0a;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   
   @media (max-width: 768px) {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 `;
 
-const ProofCards = styled.div`
+const ProofGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -47,66 +51,73 @@ const ProofCards = styled.div`
 const ProofCard = styled(motion.div)`
   background: white;
   border: 1px solid #e0e0e0;
-  padding: 1.5rem;
-  transition: all 0.2s ease;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
   text-align: center;
   
   &:hover {
     border-color: #0a0a0a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   }
   
   @media (max-width: 768px) {
-    padding: 1.2rem;
+    padding: 1.5rem;
   }
 `;
 
 const ProofTitle = styled.div`
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #0a0a0a;
-  font-weight: 500;
-  margin-bottom: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-family: 'DM Sans', sans-serif;
 `;
 
 const ProofDescription = styled.p`
   color: #4a4a4a;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
 `;
 
 const ExampleMath = styled(motion.div)`
   background: white;
   border: 1px solid #e0e0e0;
-  padding: 2rem;
-  margin-top: 2rem;
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
   
   .title {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #0a0a0a;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-family: 'DM Sans', sans-serif;
   }
   
   .calculation {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: #4a4a4a;
     line-height: 1.6;
-    margin-bottom: 1rem;
-    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .disclaimer {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: #707070;
     font-style: italic;
-    text-align: center;
+    font-family: 'Inter', sans-serif;
   }
   
   @media (max-width: 768px) {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 `;
 
@@ -120,17 +131,19 @@ const Testimonials = () => {
     <Section ref={ref}>
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          <SectionTitle>What you'll see</SectionTitle>
+          <SectionHeader>
+            <SectionTitle>What you'll see</SectionTitle>
+          </SectionHeader>
         </motion.div>
 
-        <ProofCards>
+        <ProofGrid>
           <ProofCard
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
             <ProofTitle>Pilot Scorecard (view-only)</ProofTitle>
@@ -140,8 +153,8 @@ const Testimonials = () => {
           </ProofCard>
 
           <ProofCard
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <ProofTitle>Win Packet</ProofTitle>
@@ -151,8 +164,8 @@ const Testimonials = () => {
           </ProofCard>
 
           <ProofCard
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <ProofTitle>Weekly readouts</ProofTitle>
@@ -160,11 +173,11 @@ const Testimonials = () => {
               CTR/CPC/CAC trends, kills/promotions, next hooks
             </ProofDescription>
           </ProofCard>
-        </ProofCards>
+        </ProofGrid>
 
         <ExampleMath
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="title">Example math (illustrative, not a promise)</div>

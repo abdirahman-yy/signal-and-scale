@@ -6,10 +6,10 @@ import { useInView } from 'react-intersection-observer';
 const Section = styled.section`
   background: #0a0a0a;
   color: white;
-  padding: 4rem 0;
+  padding: 5rem 0;
   
-  @media (max-width: 480px) {
-    padding: 3rem 0;
+  @media (max-width: 768px) {
+    padding: 4rem 0;
   }
 `;
 
@@ -21,39 +21,45 @@ const Container = styled.div`
 `;
 
 const CTATitle = styled.h2`
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: white;
   margin-bottom: 1rem;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.02em;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 `;
 
 const CTADescription = styled.p`
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #a0a0a0;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   line-height: 1.5;
+  font-family: 'Inter', sans-serif;
 `;
 
 const CTAButton = styled.a`
-  display: inline-block;
-  padding: 0.9rem 1.8rem;
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2.5rem;
+  font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
   background: white;
   color: #0a0a0a;
-  border: 1px solid white;
-  transition: all 0.2s ease;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
   
   &:hover {
-    background: transparent;
-    color: white;
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
   }
 `;
 
@@ -67,8 +73,8 @@ const FinalCTA = () => {
     <Section ref={ref}>
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
           <CTATitle>Ready to run a Fair Test?</CTATitle>
