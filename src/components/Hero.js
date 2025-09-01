@@ -90,8 +90,9 @@ const CTAButton = styled.a`
   transition: all 0.3s ease;
   cursor: pointer;
   letter-spacing: 0.02em;
-  min-width: 200px;
-  text-align: center;
+  width: 220px;
+  height: 50px;
+  box-sizing: border-box;
   
   &:hover {
     background: transparent;
@@ -100,7 +101,7 @@ const CTAButton = styled.a`
   }
   
   @media (max-width: 768px) {
-    padding: 0.9rem 1.8rem;
+    width: 100%;
     font-size: 0.95rem;
   }
 `;
@@ -118,8 +119,9 @@ const SecondaryButton = styled.button`
   transition: all 0.3s ease;
   cursor: pointer;
   letter-spacing: 0.02em;
-  min-width: 200px;
-  text-align: center;
+  width: 220px;
+  height: 50px;
+  box-sizing: border-box;
   
   &:hover {
     border-color: #0a0a0a;
@@ -127,64 +129,8 @@ const SecondaryButton = styled.button`
   }
   
   @media (max-width: 768px) {
-    padding: 0.9rem 1.8rem;
+    width: 100%;
     font-size: 0.95rem;
-  }
-`;
-
-const QuickFacts = styled(motion.div)`
-  background: #f8f8f8;
-  border: 1px solid #e0e0e0;
-  padding: 1.5rem;
-  margin-top: 1.5rem;
-  
-  .title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #0a0a0a;
-    margin-bottom: 1rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  }
-  
-  .facts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 1rem;
-    
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      gap: 0.8rem;
-    }
-  }
-  
-  .fact-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-  
-  .fact-label {
-    font-size: 0.7rem;
-    color: #707070;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  .fact-value {
-    font-size: 0.8rem;
-    color: #0a0a0a;
-    font-weight: 500;
-    line-height: 1.3;
-  }
-  
-  .legend {
-    font-size: 0.7rem;
-    color: #8a8a8a;
-    font-style: italic;
-    padding-top: 0.8rem;
-    border-top: 1px solid #f0f0f0;
   }
 `;
 
@@ -473,37 +419,6 @@ const Hero = () => {
                   </SecondaryButton>
                 </motion.div>
               </CTAButtons>
-              
-              <QuickFacts
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-              >
-                <div className="title">Quick facts</div>
-                <div className="facts-grid">
-                  <div className="fact-item">
-                    <span className="fact-label">Timeline</span>
-                    <span className="fact-value">14 days</span>
-                  </div>
-                  <div className="fact-item">
-                    <span className="fact-label">Throughput</span>
-                    <span className="fact-value">7–10 UGC videos (4–6 variants/day)</span>
-                  </div>
-                  <div className="fact-item">
-                    <span className="fact-label">Ops discipline</span>
-                    <span className="fact-value">2 ops checks/day & nightly upload (7:00 PM CT)</span>
-                  </div>
-                  <div className="fact-item">
-                    <span className="fact-label">Win Gate</span>
-                    <span className="fact-value">+30% CTR (72h hold) or −20% CAC vs control (parity held)</span>
-                  </div>
-                  <div className="fact-item">
-                    <span className="fact-label">Winner funding</span>
-                    <span className="fact-value">$300–$500 per variant (to de-noise results)</span>
-                  </div>
-                </div>
-                <div className="legend">CTR = Click-Through Rate; CAC = Customer Acquisition Cost</div>
-              </QuickFacts>
             </TextContent>
           </motion.div>
 
