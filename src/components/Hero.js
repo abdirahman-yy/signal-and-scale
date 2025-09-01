@@ -5,28 +5,28 @@ import { useInView } from 'react-intersection-observer';
 
 const Section = styled.section`
   background: white;
-  padding: 6rem 0 8rem;
+  padding: 6rem 0;
   
-  @media (max-width: 768px) {
-    padding: 4rem 0 6rem;
+  @media (max-width: 480px) {
+    padding: 4rem 0;
   }
 `;
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 `;
 
-const HeroGrid = styled.div`
+const HeroContent = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: start;
+  gap: 4rem;
+  align-items: center;
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3rem;
   }
 `;
 
@@ -40,30 +40,34 @@ const HeroTitle = styled.h1`
   font-size: 3.5rem;
   color: #0a0a0a;
   margin: 0;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   
   @media (max-width: 768px) {
     font-size: 2.5rem;
   }
-`;
-
-const HeroSubtext = styled.p`
-  font-size: 1.2rem;
-  color: #4a4a4a;
-  margin: 0;
-  line-height: 1.5;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
   
-  @media (max-width: 768px) {
-    font-size: 1.1rem;
+  @media (max-width: 480px) {
+    font-size: 2rem;
   }
 `;
 
-const CTARow = styled.div`
+const HeroDescription = styled.p`
+  font-size: 1.15rem;
+  color: #4a4a4a;
+  margin: 0;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  max-width: 500px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+  }
+`;
+
+const CTAButtons = styled.div`
   display: flex;
   gap: 1rem;
   
@@ -72,126 +76,162 @@ const CTARow = styled.div`
   }
 `;
 
-const PrimaryCTA = styled.a`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+const CTAButton = styled.a`
+  display: inline-block;
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
   background: #0a0a0a;
   color: white;
-  border: none;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  font-family: 'Inter', sans-serif;
+  border: 1px solid #0a0a0a;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 0.02em;
   
   &:hover {
-    background: #1a1a1a;
+    background: transparent;
+    color: #0a0a0a;
     transform: translateY(-1px);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
   }
 `;
 
-const SecondaryCTA = styled.button`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+const SecondaryButton = styled.button`
+  display: inline-block;
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 500;
   background: transparent;
   color: #0a0a0a;
   border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
   
   &:hover {
     border-color: #0a0a0a;
-    background: #fafafa;
+    transform: translateY(-1px);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
   }
 `;
 
-const MediaContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+const ImageContent = styled(motion.div)`
+  position: relative;
+  
+  @media (max-width: 768px) {
+    order: -1;
+  }
 `;
 
-const MediaCard = styled.div`
+const SplashImage = styled.div`
   width: 100%;
-  height: 400px;
+  height: 450px;
   background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.45) 0%,
-    transparent 60%
+    135deg,
+    rgba(0, 0, 0, ${props => props.isHovered ? '0.2' : '0.3'}) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, ${props => props.isHovered ? '0.1' : '0.2'}) 100%
   ),
   url('${process.env.PUBLIC_URL}/Image.png');
   background-size: cover;
   background-position: center;
-  border-radius: 12px;
+  border: 1px solid #e0e0e0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  cursor: pointer;
   
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: #d0d0d0;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
   }
   
   @media (max-width: 768px) {
-    height: 300px;
+    height: 350px;
   }
 `;
 
-const MediaOverlay = styled.div`
-  width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
-  padding: 2rem;
-  color: white;
-  border-radius: 0 0 12px 12px;
+const ImageOverlayContent = styled.div`
+  text-align: center;
+  z-index: 2;
+  transition: all 0.4s ease;
+  transform: ${props => props.isHovered ? 'translateY(-5px)' : 'translateY(0)'};
+`;
+
+const ContentSubtext = styled.div`
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  max-width: 350px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+`;
+
+const BottomOverlay = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, ${props => props.isHovered ? '0.9' : '0.8'});
+  padding: 1.5rem 2rem;
+  transition: all 0.4s ease;
   
-  .title {
-    font-size: 1.1rem;
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+`;
+
+const OverlayText = styled.div`
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  
+  strong {
+    color: rgba(255, 255, 255, 0.95);
     font-weight: 600;
-    margin-bottom: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
   }
   
-  .description {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.4;
-    font-family: 'Inter', sans-serif;
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
   }
 `;
 
-const QuickFacts = styled.div`
+const QuickFacts = styled(motion.div)`
   background: #fafafa;
   border: 1px solid #e0e0e0;
-  border-radius: 12px;
   padding: 2rem;
+  margin-top: 2rem;
   
   .title {
     font-size: 1.1rem;
     font-weight: 600;
     color: #0a0a0a;
     margin-bottom: 1.5rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   }
   
-  .fact-grid {
-    display: flex;
-    flex-direction: column;
+  .facts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1rem;
+    margin-bottom: 1.5rem;
   }
   
-  .fact {
+  .fact-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -208,8 +248,7 @@ const QuickFacts = styled.div`
     font-size: 0.9rem;
     color: #707070;
     font-weight: 500;
-    font-family: 'Inter', sans-serif;
-    min-width: 100px;
+    min-width: 120px;
   }
   
   .fact-value {
@@ -217,18 +256,15 @@ const QuickFacts = styled.div`
     color: #0a0a0a;
     font-weight: 500;
     text-align: right;
-    font-family: 'Inter', sans-serif;
     flex: 1;
   }
   
   .legend {
     font-size: 0.75rem;
     color: #8a8a8a;
-    margin-top: 1.5rem;
+    font-style: italic;
     padding-top: 1rem;
     border-top: 1px solid #f0f0f0;
-    font-style: italic;
-    font-family: 'Inter', sans-serif;
   }
 `;
 
@@ -248,13 +284,13 @@ const Modal = styled(motion.div)`
 
 const ModalContent = styled(motion.div)`
   background: white;
-  border-radius: 16px;
   padding: 3rem;
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
+  border: 1px solid #e0e0e0;
 `;
 
 const CloseButton = styled.button`
@@ -276,42 +312,38 @@ const ScorecardTitle = styled.h3`
   font-size: 1.8rem;
   color: #0a0a0a;
   margin-bottom: 1rem;
-  font-weight: 600;
-  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 `;
 
 const ScorecardSubtitle = styled.p`
   color: #707070;
   margin-bottom: 2rem;
-  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
 `;
 
-const TabList = styled.div`
+const TabsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  margin-bottom: 2rem;
 `;
 
-const Tab = styled.div`
+const TabCard = styled.div`
   background: #fafafa;
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
+  padding: 1.5rem;
   
   .tab-name {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #0a0a0a;
     margin-bottom: 0.5rem;
-    font-family: 'DM Sans', sans-serif;
   }
   
   .tab-description {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #707070;
-    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
   }
 `;
 
@@ -321,6 +353,7 @@ const Hero = () => {
     triggerOnce: true
   });
   
+  const [isHovered, setIsHovered] = useState(false);
   const [showScorecard, setShowScorecard] = useState(false);
 
   const scorecardTabs = [
@@ -336,78 +369,102 @@ const Hero = () => {
   return (
     <Section ref={ref}>
       <Container>
-        <HeroGrid>
+        <HeroContent>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <TextContent>
               <HeroTitle>
                 Lower EdTech CAC with auditable UGC — proven in a 14‑day fair test.
               </HeroTitle>
-              <HeroSubtext>
+              <HeroDescription>
                 We ship disciplined, Spark‑ready UGC and enforce parity (same budgets, placements, schedule). If we don't beat your current set, we part friends.
-              </HeroSubtext>
-              <CTARow>
-                <PrimaryCTA 
-                  href="https://calendly.com/signalandscale-sales/30min" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+              </HeroDescription>
+              <CTAButtons>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
-                  Start a Fair Test
-                </PrimaryCTA>
-                <SecondaryCTA onClick={() => setShowScorecard(true)}>
-                  Preview a sample Scorecard
-                </SecondaryCTA>
-              </CTARow>
+                  <CTAButton 
+                    href="https://calendly.com/signalandscale-sales/30min" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Start a Fair Test
+                  </CTAButton>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.8, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <SecondaryButton onClick={() => setShowScorecard(true)}>
+                    Preview a sample Scorecard
+                  </SecondaryButton>
+                </motion.div>
+              </CTAButtons>
             </TextContent>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          <ImageContent
+            initial={{ opacity: 0, x: 30 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <MediaContainer>
-              <MediaCard>
-                <MediaOverlay>
-                  <div className="title">Auditable results under strict parity</div>
-                  <div className="description">
-                    Same budgets, placements, schedule. Kill weak variants early, fund winners $300-$500. If we don't beat control, we part friends.
-                  </div>
-                </MediaOverlay>
-              </MediaCard>
+            <SplashImage
+              isHovered={isHovered}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <ImageOverlayContent isHovered={isHovered}>
+                <ContentSubtext isHovered={isHovered}>
+                  Auditable results under strict parity
+                </ContentSubtext>
+              </ImageOverlayContent>
               
-              <QuickFacts>
-                <div className="title">Quick facts</div>
-                <div className="fact-grid">
-                  <div className="fact">
-                    <span className="fact-label">Timeline:</span>
-                    <span className="fact-value">14 days</span>
-                  </div>
-                  <div className="fact">
-                    <span className="fact-label">Throughput:</span>
-                    <span className="fact-value">7–10 UGC videos (4–6 variants/day)</span>
-                  </div>
-                  <div className="fact">
-                    <span className="fact-label">Ops discipline:</span>
-                    <span className="fact-value">2 ops checks/day & nightly upload (7:00 PM CT)</span>
-                  </div>
-                  <div className="fact">
-                    <span className="fact-label">Win Gate:</span>
-                    <span className="fact-value">+30% CTR (72h hold) or −20% CAC vs control (parity held)</span>
-                  </div>
-                  <div className="fact">
-                    <span className="fact-label">Winner funding:</span>
-                    <span className="fact-value">$300–$500 per variant (to de-noise results)</span>
-                  </div>
+              <BottomOverlay isHovered={isHovered}>
+                <OverlayText>
+                  <strong>Fair Test methodology</strong><br />
+                  Same budgets, placements, schedule. Kill weak variants early, fund winners $300-$500. If we don't beat control, we part friends.
+                </OverlayText>
+              </BottomOverlay>
+            </SplashImage>
+            
+            <QuickFacts
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+            >
+              <div className="title">Quick facts</div>
+              <div className="facts-grid">
+                <div className="fact-row">
+                  <span className="fact-label">Timeline:</span>
+                  <span className="fact-value">14 days</span>
                 </div>
-                <div className="legend">CTR = Click-Through Rate; CAC = Customer Acquisition Cost</div>
-              </QuickFacts>
-            </MediaContainer>
-          </motion.div>
-        </HeroGrid>
+                <div className="fact-row">
+                  <span className="fact-label">Throughput:</span>
+                  <span className="fact-value">7–10 UGC videos (4–6 variants/day)</span>
+                </div>
+                <div className="fact-row">
+                  <span className="fact-label">Ops discipline:</span>
+                  <span className="fact-value">2 ops checks/day & nightly upload (7:00 PM CT)</span>
+                </div>
+                <div className="fact-row">
+                  <span className="fact-label">Win Gate:</span>
+                  <span className="fact-value">+30% CTR (72h hold) or −20% CAC vs control (parity held)</span>
+                </div>
+                <div className="fact-row">
+                  <span className="fact-label">Winner funding:</span>
+                  <span className="fact-value">$300–$500 per variant (to de-noise results)</span>
+                </div>
+              </div>
+              <div className="legend">CTR = Click-Through Rate; CAC = Customer Acquisition Cost</div>
+            </QuickFacts>
+          </ImageContent>
+        </HeroContent>
       </Container>
 
       <AnimatePresence>
@@ -430,14 +487,14 @@ const Hero = () => {
                 Illustrative. Actual access is view-only during your pilot.
               </ScorecardSubtitle>
               
-              <TabList>
+              <TabsGrid>
                 {scorecardTabs.map((tab, index) => (
-                  <Tab key={index}>
+                  <TabCard key={index}>
                     <div className="tab-name">{tab.name}</div>
                     <div className="tab-description">{tab.description}</div>
-                  </Tab>
+                  </TabCard>
                 ))}
-              </TabList>
+              </TabsGrid>
             </ModalContent>
           </Modal>
         )}
