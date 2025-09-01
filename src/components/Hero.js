@@ -5,10 +5,10 @@ import { useInView } from 'react-intersection-observer';
 
 const Section = styled.section`
   background: white;
-  padding: 6rem 0;
+  padding: 4rem 0;
   
   @media (max-width: 480px) {
-    padding: 4rem 0;
+    padding: 3rem 0;
   }
 `;
 
@@ -22,7 +22,7 @@ const HeroContent = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: start;
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -214,7 +214,7 @@ const QuickFacts = styled(motion.div)`
   background: #fafafa;
   border: 1px solid #e0e0e0;
   padding: 2rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   
   .title {
     font-size: 1.1rem;
@@ -226,37 +226,35 @@ const QuickFacts = styled(motion.div)`
   
   .facts-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem 2rem;
     margin-bottom: 1.5rem;
-  }
-  
-  .fact-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid #f0f0f0;
     
-    &:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
   }
   
+  .fact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
   .fact-label {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #707070;
     font-weight: 500;
-    min-width: 120px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   
   .fact-value {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #0a0a0a;
     font-weight: 500;
-    text-align: right;
-    flex: 1;
+    line-height: 1.4;
   }
   
   .legend {
@@ -440,24 +438,24 @@ const Hero = () => {
             >
               <div className="title">Quick facts</div>
               <div className="facts-grid">
-                <div className="fact-row">
-                  <span className="fact-label">Timeline:</span>
+                <div className="fact-item">
+                  <span className="fact-label">Timeline</span>
                   <span className="fact-value">14 days</span>
                 </div>
-                <div className="fact-row">
-                  <span className="fact-label">Throughput:</span>
+                <div className="fact-item">
+                  <span className="fact-label">Throughput</span>
                   <span className="fact-value">7–10 UGC videos (4–6 variants/day)</span>
                 </div>
-                <div className="fact-row">
-                  <span className="fact-label">Ops discipline:</span>
+                <div className="fact-item">
+                  <span className="fact-label">Ops discipline</span>
                   <span className="fact-value">2 ops checks/day & nightly upload (7:00 PM CT)</span>
                 </div>
-                <div className="fact-row">
-                  <span className="fact-label">Win Gate:</span>
+                <div className="fact-item">
+                  <span className="fact-label">Win Gate</span>
                   <span className="fact-value">+30% CTR (72h hold) or −20% CAC vs control (parity held)</span>
                 </div>
-                <div className="fact-row">
-                  <span className="fact-label">Winner funding:</span>
+                <div className="fact-item">
+                  <span className="fact-label">Winner funding</span>
                   <span className="fact-value">$300–$500 per variant (to de-noise results)</span>
                 </div>
               </div>

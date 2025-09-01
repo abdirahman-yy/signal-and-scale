@@ -16,7 +16,7 @@ const AppContainer = styled.div`
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   color: #333;
-  background-color: #0a0a0a;
+  background-color: #ffffff;
   min-height: 100vh;
 `;
 
