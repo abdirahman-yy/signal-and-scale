@@ -124,6 +124,62 @@ const SecondaryButton = styled.button`
   }
 `;
 
+const QuickFacts = styled(motion.div)`
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  
+  .title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0a0a0a;
+    margin-bottom: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+  }
+  
+  .fact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  
+  .fact-label {
+    font-size: 0.7rem;
+    color: #707070;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .fact-value {
+    font-size: 0.8rem;
+    color: #0a0a0a;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  
+  .legend {
+    font-size: 0.7rem;
+    color: #8a8a8a;
+    font-style: italic;
+    padding-top: 0.8rem;
+    border-top: 1px solid #f0f0f0;
+  }
+`;
+
 const ImageContent = styled(motion.div)`
   position: relative;
   
@@ -164,6 +220,58 @@ const SplashImage = styled.div`
   }
 `;
 
+const StatsBar = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, ${props => props.isHovered ? '0.95' : '0.9'});
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 4;
+  transition: all 0.3s ease;
+  transform: ${props => props.isHovered ? 'translateY(-2px)' : 'translateY(0)'};
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem 1rem;
+    font-size: 0.7rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+`;
+
+const StatItem = styled.div`
+  text-align: center;
+  
+  .number {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  .label {
+    font-size: 0.7rem;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  @media (max-width: 768px) {
+    .number {
+      font-size: 0.9rem;
+    }
+    .label {
+      font-size: 0.6rem;
+    }
+  }
+`;
+
 const ImageOverlayContent = styled.div`
   text-align: center;
   z-index: 2;
@@ -183,86 +291,26 @@ const ContentSubtext = styled.div`
 
 const BottomOverlay = styled.div`
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, ${props => props.isHovered ? '0.9' : '0.8'});
-  padding: 1.5rem 2rem;
-  transition: all 0.4s ease;
-  
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, ${props => props.isHovered ? '0.98' : '0.95'});
+  padding: 1.2rem;
+  border: 1px solid #e0e0e0;
+  backdrop-filter: blur(10px);
+  z-index: 4;
+  transition: all 0.3s ease;
+  transform: ${props => props.isHovered ? 'translateY(-2px)' : 'translateY(0)'};
 `;
 
 const OverlayText = styled.div`
-  color: rgba(255, 255, 255, 0.9);
   font-size: 0.9rem;
+  color: #4a4a4a;
   line-height: 1.5;
   
   strong {
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 600;
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-  }
-`;
-
-const QuickFacts = styled(motion.div)`
-  background: #fafafa;
-  border: 1px solid #e0e0e0;
-  padding: 2rem;
-  margin-top: 1.5rem;
-  
-  .title {
-    font-size: 1.1rem;
-    font-weight: 600;
     color: #0a0a0a;
-    margin-bottom: 1.5rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  }
-  
-  .facts-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem 2rem;
-    margin-bottom: 1.5rem;
-    
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-  }
-  
-  .fact-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  
-  .fact-label {
-    font-size: 0.8rem;
-    color: #707070;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  .fact-value {
-    font-size: 0.95rem;
-    color: #0a0a0a;
-    font-weight: 500;
-    line-height: 1.4;
-  }
-  
-  .legend {
-    font-size: 0.75rem;
-    color: #8a8a8a;
-    font-style: italic;
-    padding-top: 1rem;
-    border-top: 1px solid #f0f0f0;
+    font-weight: 600;
   }
 `;
 
@@ -322,8 +370,21 @@ const ScorecardSubtitle = styled.p`
 
 const TabsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  
+  /* Center the last item (7th card) */
+  & > *:nth-child(7) {
+    grid-column: 2 / 3;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    
+    & > *:nth-child(7) {
+      grid-column: auto;
+    }
+  }
 `;
 
 const TabCard = styled.div`
@@ -404,6 +465,37 @@ const Hero = () => {
                   </SecondaryButton>
                 </motion.div>
               </CTAButtons>
+              
+              <QuickFacts
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+              >
+                <div className="title">Quick facts</div>
+                <div className="facts-grid">
+                  <div className="fact-item">
+                    <span className="fact-label">Timeline</span>
+                    <span className="fact-value">14 days</span>
+                  </div>
+                  <div className="fact-item">
+                    <span className="fact-label">Throughput</span>
+                    <span className="fact-value">7–10 UGC videos (4–6 variants/day)</span>
+                  </div>
+                  <div className="fact-item">
+                    <span className="fact-label">Ops discipline</span>
+                    <span className="fact-value">2 ops checks/day & nightly upload (7:00 PM CT)</span>
+                  </div>
+                  <div className="fact-item">
+                    <span className="fact-label">Win Gate</span>
+                    <span className="fact-value">+30% CTR (72h hold) or −20% CAC vs control (parity held)</span>
+                  </div>
+                  <div className="fact-item">
+                    <span className="fact-label">Winner funding</span>
+                    <span className="fact-value">$300–$500 per variant (to de-noise results)</span>
+                  </div>
+                </div>
+                <div className="legend">CTR = Click-Through Rate; CAC = Customer Acquisition Cost</div>
+              </QuickFacts>
             </TextContent>
           </motion.div>
 
@@ -417,6 +509,26 @@ const Hero = () => {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
+              <StatsBar
+                initial={{ opacity: 0, y: -20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                isHovered={isHovered}
+              >
+                <StatItem>
+                  <div className="number">20-30%</div>
+                  <div className="label">CAC Reduction</div>
+                </StatItem>
+                <StatItem>
+                  <div className="number">14 Days</div>
+                  <div className="label">Timeline</div>
+                </StatItem>
+                <StatItem>
+                  <div className="number">7-10</div>
+                  <div className="label">UGC Videos</div>
+                </StatItem>
+              </StatsBar>
+              
               <ImageOverlayContent isHovered={isHovered}>
                 <ContentSubtext isHovered={isHovered}>
                   Auditable results under strict parity
@@ -430,37 +542,6 @@ const Hero = () => {
                 </OverlayText>
               </BottomOverlay>
             </SplashImage>
-            
-            <QuickFacts
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-            >
-              <div className="title">Quick facts</div>
-              <div className="facts-grid">
-                <div className="fact-item">
-                  <span className="fact-label">Timeline</span>
-                  <span className="fact-value">14 days</span>
-                </div>
-                <div className="fact-item">
-                  <span className="fact-label">Throughput</span>
-                  <span className="fact-value">7–10 UGC videos (4–6 variants/day)</span>
-                </div>
-                <div className="fact-item">
-                  <span className="fact-label">Ops discipline</span>
-                  <span className="fact-value">2 ops checks/day & nightly upload (7:00 PM CT)</span>
-                </div>
-                <div className="fact-item">
-                  <span className="fact-label">Win Gate</span>
-                  <span className="fact-value">+30% CTR (72h hold) or −20% CAC vs control (parity held)</span>
-                </div>
-                <div className="fact-item">
-                  <span className="fact-label">Winner funding</span>
-                  <span className="fact-value">$300–$500 per variant (to de-noise results)</span>
-                </div>
-              </div>
-              <div className="legend">CTR = Click-Through Rate; CAC = Customer Acquisition Cost</div>
-            </QuickFacts>
           </ImageContent>
         </HeroContent>
       </Container>

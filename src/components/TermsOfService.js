@@ -20,6 +20,7 @@ const BackLink = styled(Link)`
   text-decoration: none;
   padding: 0.5rem 1rem;
   border: 1px solid #e0e0e0;
+  background: white;
   transition: all 0.3s ease;
   
   &:hover {
@@ -94,10 +95,6 @@ const TermsOfService = () => {
       <Summary>
         <strong>Plain-English summary (non-binding).</strong> We run 14-day pilots to test disciplined User-Generated Content (UGC) against your current ads under a Fair Test (strict parity on budgets, placements, schedule, geo, attribution). We kill weak variants early and fund winners $300–$500 per variant to confirm lift. If we don't beat your current set under parity, we part friends—no retainer obligation. You fund ad spend directly; our fees cover production and operations.
       </Summary>
-
-      <Paragraph>
-        <strong>Acronyms:</strong> On first use we spell out each term (e.g., Customer Acquisition Cost (CAC)). A glossary is at the end.
-      </Paragraph>
 
       <SectionTitle>1) Definitions</SectionTitle>
       <List>
