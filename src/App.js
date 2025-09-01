@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProblemSolution from './components/ProblemSolution';
-import HowItWorks from './components/HowItWorks';
+import FairTest from './components/HowItWorks';
 import Testimonials from './components/Testimonials';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
@@ -36,7 +36,7 @@ const HomePage = () => (
     <Header />
     <Hero />
     <ProblemSolution />
-    <HowItWorks />
+    <FairTest />
     <Testimonials />
     <FinalCTA />
     <Footer />

@@ -16,12 +16,21 @@ const Container = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const LogoImage = styled.img`
+  width: 40px;
+  height: 40px;
+  filter: invert(1);
 `;
 
 const BrandName = styled(motion.h1)`
   font-size: 2.5rem;
   color: white;
-  margin-bottom: 1rem;
+  margin: 0;
   font-weight: 300;
   letter-spacing: -0.02em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -31,18 +40,11 @@ const BrandName = styled(motion.h1)`
   }
 `;
 
-const SubTagline = styled(motion.p)`
-  font-size: 0.95rem;
-  color: #8a8a8a;
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  margin: 0;
-`;
-
 const Header = () => {
   return (
     <HeaderSection>
       <Container>
+        <LogoImage src={`${process.env.PUBLIC_URL}/logo.svg`} alt="Signal & Scale Studio Logo" />
         <BrandName
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,13 +52,6 @@ const Header = () => {
         >
           Signal & Scale
         </BrandName>
-        <SubTagline
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-          Reduce acquisition costs through authentic video content
-        </SubTagline>
       </Container>
     </HeaderSection>
   );
