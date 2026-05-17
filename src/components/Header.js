@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { theme } from '../theme';
 
 const HeaderSection = styled.header`
   padding: 2.5rem 0 0;
@@ -11,25 +10,34 @@ const HeaderSection = styled.header`
   }
 `;
 
-const Wordmark = styled(Link)`
-  font-family: ${theme.serif};
-  font-weight: 400;
-  font-size: 1.25rem;
-  letter-spacing: -0.01em;
-  color: ${theme.text};
-  text-decoration: none;
-  font-variation-settings: 'opsz' 14;
+const LogoLink = styled(Link)`
+  display: inline-block;
+  line-height: 0;
 
   &:hover {
     text-decoration: none;
-    color: ${theme.accent};
+  }
+`;
+
+const Logo = styled.img`
+  display: block;
+  height: 38px;
+  width: auto;
+
+  @media (max-width: 640px) {
+    height: 32px;
   }
 `;
 
 const Header = () => {
   return (
     <HeaderSection>
-      <Wordmark to="/">Signal &amp; Scale</Wordmark>
+      <LogoLink to="/" aria-label="Signal & Scale — home">
+        <Logo
+          src={`${process.env.PUBLIC_URL}/assets/brand/signal-scale-email.png`}
+          alt="Signal & Scale"
+        />
+      </LogoLink>
     </HeaderSection>
   );
 };

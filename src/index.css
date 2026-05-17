@@ -4,7 +4,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #FAFAF7;
+  background-color: #F4F4EF;
   color: #1A1A1A;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   font-size: 19px;
@@ -21,8 +21,8 @@ body {
 }
 
 ::selection {
-  background: #1F3D2E;
-  color: #FAFAF7;
+  background: #1E3D2F;
+  color: #F4F4EF;
 }
 
 * {
@@ -30,7 +30,7 @@ body {
 }
 
 a {
-  color: #1F3D2E;
+  color: #1E3D2F;
   text-decoration: none;
   transition: text-decoration 0.15s ease;
 }

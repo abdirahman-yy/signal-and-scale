@@ -17,13 +17,15 @@ const Rule = styled.div`
   margin-bottom: 2rem;
 `;
 
-const Brand = styled.div`
-  font-family: ${theme.serif};
-  font-weight: 400;
-  font-size: 1.05rem;
-  color: ${theme.text};
-  margin-bottom: 0.4rem;
-  font-variation-settings: 'opsz' 14;
+const BrandLockup = styled.img`
+  display: block;
+  height: 56px;
+  width: auto;
+  margin-bottom: 1.25rem;
+
+  @media (max-width: 640px) {
+    height: 48px;
+  }
 `;
 
 const Line = styled.div`
@@ -75,12 +77,15 @@ const Footer = () => {
   return (
     <FooterSection>
       <Rule />
-      <Brand>Signal &amp; Scale Studio</Brand>
+      <BrandLockup
+        src={`${process.env.PUBLIC_URL}/assets/brand/signal-scale-primary.png`}
+        alt="Signal & Scale — Influencer Marketing Studio"
+      />
       <Line>
         <EmailLink href="mailto:abdi@signalandscale.studio">
           abdi@signalandscale.studio
         </EmailLink>
-          {' · '}San Francisco, CA
+        {' · '}San Francisco, CA
       </Line>
       <Bottom>
         <Copy>© 2026 Signal &amp; Scale</Copy>
