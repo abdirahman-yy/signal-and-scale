@@ -9,8 +9,8 @@ export const theme = {
   lightSage: '#7FB79C',
   serif: `'Fraunces', 'Newsreader', Georgia, serif`,
   sans: `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif`,
-  contentMax: '680px',
-  pagePadding: '1.5rem',
+  contentMax: '880px',
+  pagePadding: '1.75rem',
 };
 
 export default theme;

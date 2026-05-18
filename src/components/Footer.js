@@ -17,15 +17,28 @@ const Rule = styled.div`
   margin-bottom: 2rem;
 `;
 
+const BrandBlock = styled.div`
+  margin-bottom: 1.5rem;
+`;
+
 const BrandLockup = styled.img`
   display: block;
-  height: 56px;
+  height: 46px;
   width: auto;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.7rem;
 
   @media (max-width: 640px) {
-    height: 48px;
+    height: 38px;
   }
+`;
+
+const Tagline = styled.div`
+  font-family: ${theme.sans};
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: ${theme.textMuted};
+  font-weight: 500;
 `;
 
 const Line = styled.div`
@@ -77,10 +90,13 @@ const Footer = () => {
   return (
     <FooterSection>
       <Rule />
-      <BrandLockup
-        src={`${process.env.PUBLIC_URL}/assets/brand/signal-scale-primary.png`}
-        alt="Signal & Scale — Influencer Marketing Studio"
-      />
+      <BrandBlock>
+        <BrandLockup
+          src={`${process.env.PUBLIC_URL}/assets/brand/signal-scale-email.png`}
+          alt="Signal & Scale"
+        />
+        <Tagline>Influencer Marketing Studio</Tagline>
+      </BrandBlock>
       <Line>
         <EmailLink href="mailto:abdi@signalandscale.studio">
           abdi@signalandscale.studio
