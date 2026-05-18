@@ -98,7 +98,7 @@ const TermsOfService = () => {
       <Paragraph>
         <strong>Entity.</strong> Signal and Scale LLC ("Signal &amp; Scale," "we," "us," "our"), San Francisco, California.
         <br />
-        <strong>Contact.</strong> abdi@signalandscale.studio
+        <strong>Contact.</strong> partnerships@signalandscale.studio
       </Paragraph>
 
       <Summary>
@@ -243,7 +243,7 @@ const TermsOfService = () => {
 
       <SectionTitle>20. Contact</SectionTitle>
       <Paragraph>
-        Questions about these Terms: abdi@signalandscale.studio. Signal and Scale LLC, San Francisco, CA.
+        Questions about these Terms: partnerships@signalandscale.studio. Signal and Scale LLC, San Francisco, CA.
       </Paragraph>
     </PageContainer>
   );

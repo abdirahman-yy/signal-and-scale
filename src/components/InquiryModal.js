@@ -266,7 +266,7 @@ const InquiryModal = ({ open, onClose }) => {
       setStatus('success');
     } catch (err) {
       setStatus('idle');
-      setError('Something went wrong. Please email abdi@signalandscale.studio directly.');
+      setError('Something went wrong. Please email partnerships@signalandscale.studio directly.');
     }
   };
 

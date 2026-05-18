@@ -98,8 +98,8 @@ const Footer = () => {
         <Tagline>Influencer Marketing Studio</Tagline>
       </BrandBlock>
       <Line>
-        <EmailLink href="mailto:abdi@signalandscale.studio">
-          abdi@signalandscale.studio
+        <EmailLink href="mailto:partnerships@signalandscale.studio">
+          partnerships@signalandscale.studio
         </EmailLink>
         {' · '}San Francisco, CA
       </Line>

@@ -89,7 +89,7 @@ const PrivacyPolicy = () => {
       <Paragraph>
         <strong>Entity.</strong> Signal and Scale LLC ("Signal &amp; Scale," "we," "us," "our"), San Francisco, California.
         <br />
-        <strong>Contact.</strong> abdi@signalandscale.studio
+        <strong>Contact.</strong> partnerships@signalandscale.studio
       </Paragraph>
 
       <Paragraph>
@@ -174,7 +174,7 @@ const PrivacyPolicy = () => {
         <ListItem><strong>Other US states</strong> with comprehensive privacy laws (CO, CT, VA, UT, and others) — we honor equivalent rights.</ListItem>
       </List>
       <Paragraph>
-        To exercise rights, email abdi@signalandscale.studio with the subject "Privacy Request." We may need to verify your identity before responding, and we'll respond within statutory timelines.
+        To exercise rights, email partnerships@signalandscale.studio with the subject "Privacy Request." We may need to verify your identity before responding, and we'll respond within statutory timelines.
       </Paragraph>
 
       <SectionTitle>10. Controller and processor relationship</SectionTitle>
@@ -194,7 +194,7 @@ const PrivacyPolicy = () => {
 
       <SectionTitle>13. Contact</SectionTitle>
       <Paragraph>
-        Privacy questions: abdi@signalandscale.studio. Signal and Scale LLC, San Francisco, CA.
+        Privacy questions: partnerships@signalandscale.studio. Signal and Scale LLC, San Francisco, CA.
       </Paragraph>
     </PageContainer>
   );
