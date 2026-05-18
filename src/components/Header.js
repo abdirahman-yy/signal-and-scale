@@ -34,7 +34,7 @@ const Header = () => {
     <HeaderSection>
       <LogoLink to="/" aria-label="Signal & Scale — home">
         <Logo
-          src={`${process.env.PUBLIC_URL}/assets/brand/signal-scale-email.png`}
+          src={`${process.env.PUBLIC_URL}/assets/brand/signal-scale-email.svg`}
           alt="Signal & Scale"
         />
       </LogoLink>

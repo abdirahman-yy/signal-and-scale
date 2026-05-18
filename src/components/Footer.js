@@ -92,7 +92,7 @@ const Footer = () => {
       <Rule />
       <BrandBlock>
         <BrandLockup
-          src={`${process.env.PUBLIC_URL}/assets/brand/signal-scale-email.png`}
+          src={`${process.env.PUBLIC_URL}/assets/brand/signal-scale-email.svg`}
           alt="Signal & Scale"
         />
         <Tagline>Influencer Marketing Studio</Tagline>
